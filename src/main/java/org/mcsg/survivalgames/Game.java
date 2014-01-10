@@ -541,9 +541,10 @@ public class Game {
 	 */
 	public void killPlayer(Player p, boolean left) {
 		try{
+			Location tempLobby = SettingsManager.getInstance().getLobbySpawn();
 			clearInv(p);
 			if (!left) {
-				p.teleport(SettingsManager.getInstance().getLobbySpawn());
+				p.teleport(tempLobby);
 			}
 			sm.playerDied(p, activePlayers.size(), gameID, new Date().getTime() - startTime);
 
